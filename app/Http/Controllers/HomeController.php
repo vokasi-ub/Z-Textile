@@ -9,6 +9,28 @@ use Illuminate\Support\Facades\DB;
 class HomeController extends Controller
 {
     public function index(){
+        return view('index');
+    }
+
+    public function login(){
+        return view('login');
+    }
+
+    public function register(Request $request){
+        DB::table('users')->insert([
+            'id_item' => $request->inputIDItem,
+            'id_category' => $request->inputIDCategory,
+            'nama_item' => $request->inputNamaItem,
+            'warna' => $request->inputWarna,
+            'stok' => $request->inputStok,
+            'harga' => $request->inputHarga,
+            'satuan' => $request->inputSatuan,
+            'keterangan' => $request->inputKeterangan
+            ]);
+        return redirect('/');
+    }
+
+    public function listitem(){
         $listitem = TextileModel::all();
         return view('list-item', compact('listitem'));
         dd($listitem);
@@ -38,16 +60,15 @@ class HomeController extends Controller
         return redirect('/');
     }
 
-    public function edit($id){
-        $data = DB::table('items')->where('id_item',$id_item)->get();
-        return view('edit', compact('data'));
+    public function edit($id_item){
+        $data = TextileModel::where('id_item',$id_item)->get();
+        return view('edit', ['data'=>$data]);
 		
     }
 
     public function update(Request $request, $id_item)
     {
-        DB::table('items')->where('id_item',$request->id_item)->update([
-            'id_item' => $request->inputIDItem,
+        TextileModel::where('id_item',$id_item)->update([
             'id_category' => $request->inputIDCategory,
             'nama_item' => $request->inputNamaItem,
             'warna' => $request->inputWarna,
@@ -56,13 +77,14 @@ class HomeController extends Controller
             'satuan' => $request->inputSatuan,
             'keterangan' => $request->inputKeterangan
             ]);	
-            return redirect('/');
+    return redirect('master');        
     }
+
 
     public function destroy($id_item)
     {
-        DB::table('items')->where('id_item',$id_item)->delete();
-        return redirect('/');
+        TextileModel::where('id_item',$id_item)->delete();
+        return redirect('master');
     }
 
 }

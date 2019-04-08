@@ -56,7 +56,7 @@
     @endif
 				<div class="box-footer clearfix">
                     <ul class="pagination pagination-sm no-margin pull-left">
-                    <button type="submit" class="btn btn-default"><a href="{{route('post.index')}}">Back</button>
+                    <button type="submit" class="btn btn-default"><a href="master">Back</button>
                     </ul>
 
                     <ul class="pagination pagination-sm no-margin pull-right">

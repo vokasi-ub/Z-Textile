@@ -64,9 +64,13 @@
                                 <td>{{$item->satuan}}</td>
                                 <td>{{$item->keterangan}}</td>
 								<td>
-								<button type="submit" class="btn btn-default btn-info"><a href="/edit/coba/{{$item->id_item}}">Edit</a></button>
+								<button type="submit" class="btn btn-default btn-info"><a href="{{route('admin.edit',$item->id_item)}}">Edit</a></button>
 										|
-									<button type="submit" class="btn btn-default btn-danger" style="color: white">Hapus</a>										</button>
+                    <form action="{{route('admin.destroy',$item->id_item)}}" method="post">
+                      {{csrf_field()}}
+                      {{method_field('DELETE')}}
+									<button type="submit" class="btn btn-default btn-danger" style="color: white">Hapus										</button>
+                </form>
 									</td>
 								</tr>
 								@endforeach

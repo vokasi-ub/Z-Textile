@@ -4,7 +4,7 @@
 <head>
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <title>Create</title>
+  <title>Edit</title>
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <link rel="stylesheet" type="text/css" media="screen" href="main.css">
   <script src="main.js"></script>
@@ -22,14 +22,15 @@
             </div>
             <!-- /.box-header -->
             <!-- form start -->
-            <form class="form-horizontal" action="<?php echo url('update/'.$request->id_item)?>" method="post">
+            <form class="form-horizontal" action="{{route('admin.update',$row->id_item)}}" method="post">
             {{ csrf_field() }}
+            {{method_field('PUT')}}
               <div class="box-body">
                 <!-- ID Item -->
                 <div class="form-group">
-                  <label for="inputIDItem" class="col-sm-2 control-label">ID Item</label>
+                  
                   <div class="col-sm-10">
-                    <input type="number" class="form-control" id="inputIDItem" placeholder="ID Item" name="inputIDItem" value="{{$row->id_item}}">
+                    <input type="hidden" class="form-control" id="inputIDItem" placeholder="ID Item" name="inputIDItem" value="{{$row->id_item}}">
                   </div>
                 </div>
 
