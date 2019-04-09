@@ -47,22 +47,22 @@
 								<th>Nama Item</th>
 								<th>Warna</th>
 								<th>Stok</th>
-                                <th>Harga</th>
-                                <th>Satuan</th>
-                                <th>Keterangan</th>
-                                <th>Action</th>
+                <th>Harga</th>
+                <th>Satuan</th>
+                <th>Keterangan</th>
+                <th>Action</th>
 								</tr>
 				
 								@foreach($listitem as $item)
         				<tr>
 								<td>{{$item->id_item}}</td>
-                                <td>{{$item->id_category}}</td>
+                <td>{{$item->id_category}}</td>
 								<td>{{$item->nama_item}}</td>
 								<td>{{$item->warna}}</td>
 								<td>{{$item->stok}}</td>
-                                <td>{{$item->harga}}</td>
-                                <td>{{$item->satuan}}</td>
-                                <td>{{$item->keterangan}}</td>
+                <td>{{$item->harga}}</td>
+                <td>{{$item->satuan}}</td>
+                <td>{{$item->keterangan}}</td>
 								<td>
 								<button type="submit" class="btn btn-default btn-info"><a href="{{route('admin.edit',$item->id_item)}}">Edit</a></button>
 										|

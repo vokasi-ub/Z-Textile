@@ -3,89 +3,26 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-use App\TextileModel;
-use Illuminate\Support\Facades\DB;
 
 class HomeController extends Controller
 {
-    public function index(){
-        return view('index');
-    }
-
-    public function login(){
-        return view('login');
-    }
-
-    public function register(Request $request){
-        DB::table('users')->insert([
-            'id_item' => $request->inputIDItem,
-            'id_category' => $request->inputIDCategory,
-            'nama_item' => $request->inputNamaItem,
-            'warna' => $request->inputWarna,
-            'stok' => $request->inputStok,
-            'harga' => $request->inputHarga,
-            'satuan' => $request->inputSatuan,
-            'keterangan' => $request->inputKeterangan
-            ]);
-        return redirect('/');
-    }
-
-    public function listitem(){
-        $listitem = TextileModel::all();
-        return view('list-item', compact('listitem'));
-        dd($listitem);
-    }
-
-    public function cari(Request $request){
-		$cari = $request->get('q');
-		$result = TextileModel::where('nama_item', 'LIKE', '%'.$cari.'%')->paginate(3);
-		return view('search-result', compact('cari', 'result'));
-    }
-    
-    public function insert(){
-        return view('create');
-    }
-
-    public function store(Request $request){
-        DB::table('items')->insert([
-            'id_item' => $request->inputIDItem,
-            'id_category' => $request->inputIDCategory,
-            'nama_item' => $request->inputNamaItem,
-            'warna' => $request->inputWarna,
-            'stok' => $request->inputStok,
-            'harga' => $request->inputHarga,
-            'satuan' => $request->inputSatuan,
-            'keterangan' => $request->inputKeterangan
-            ]);
-        return redirect('/');
-    }
-
-    public function edit($id_item){
-        $data = TextileModel::where('id_item',$id_item)->get();
-        return view('edit', ['data'=>$data]);
-		
-    }
-
-    public function update(Request $request, $id_item)
+    /**
+     * Create a new controller instance.
+     *
+     * @return void
+     */
+    public function __construct()
     {
-        TextileModel::where('id_item',$id_item)->update([
-            'id_category' => $request->inputIDCategory,
-            'nama_item' => $request->inputNamaItem,
-            'warna' => $request->inputWarna,
-            'stok' => $request->inputStok,
-            'harga' => $request->inputHarga,
-            'satuan' => $request->inputSatuan,
-            'keterangan' => $request->inputKeterangan
-            ]);	
-    return redirect('master');        
+        $this->middleware('auth');
     }
 
-
-    public function destroy($id_item)
+    /**
+     * Show the application dashboard.
+     *
+     * @return \Illuminate\Contracts\Support\Renderable
+     */
+    public function index()
     {
-        TextileModel::where('id_item',$id_item)->delete();
-        return redirect('master');
+        return view('home');
     }
-
 }
-

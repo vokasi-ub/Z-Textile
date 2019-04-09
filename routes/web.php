@@ -24,7 +24,13 @@ Route::get('/login','HomeController@login');
 Route::get('/search','HomeController@cari')->name('post.cari');
 Route::get('/insert','HomeController@insert')->name('post.insert');
 Route::post('/store','HomeController@store')->name('post.store');
+Route::get('/category','HomeController@category');
 // Route::get('edit/coba/{id_item}','HomeController@edit');
 //Route::post('update/{id_item}','HomeController@update');
 Route::resource('admin','HomeController');
+
+
+Auth::routes();
+
+Route::get('/home', 'HomeController@index')->name('home');
 
