@@ -29,15 +29,7 @@
           <ul class="treeview-menu">
             <li class="active"><a href="{{ asset('index.html') }}"><i class="fa fa-circle-o"></i> Dashboard v1</a></li>
             <li><a href="{{ asset('index2.html') }}"><i class="fa fa-circle-o"></i> Dashboard v2</a></li>
-            <a class="dropdown-item" href="{{ route('logout') }}"
-                                       onclick="event.preventDefault();
-                                                     document.getElementById('logout-form').submit();">
-                                        {{ __('Logout') }}
-                                    </a>
-
-                                    <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
-                                        @csrf
-                                    </form>
+            
         </li>
         <li class="treeview">
           <a href="#">
