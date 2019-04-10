@@ -32,18 +32,18 @@ class HomeController extends Controller
 
     public function listitem(){
         $listitem = TextileModel::all();
-        return view('list-item', compact('listitem'));
+        return view('List.list-item', compact('listitem'));
         dd($listitem);
     }
 
     public function cari(Request $request){
         $cari = $request->get('q');
         $result = TextileModel::where('nama_item', 'LIKE', '%'.$cari.'%')->paginate(3);
-        return view('search-result', compact('cari', 'result'));
+        return view('List.search-result', compact('cari', 'result'));
     }
     
     public function insert(){
-        return view('create');
+        return view('List.create');
     }
 
     public function store(Request $request){
@@ -57,12 +57,12 @@ class HomeController extends Controller
             'satuan' => $request->inputSatuan,
             'keterangan' => $request->inputKeterangan
             ]);
-        return redirect('/');
+        return redirect('master');
     }
 
     public function edit($id_item){
         $data = TextileModel::where('id_item',$id_item)->get();
-        return view('edit', ['data'=>$data]);
+        return view('List.edit', ['data'=>$data]);
         
     }
 
@@ -79,7 +79,6 @@ class HomeController extends Controller
             ]); 
     return redirect('master');        
     }
-
 
     public function destroy($id_item)
     {

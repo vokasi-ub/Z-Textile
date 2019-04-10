@@ -12,7 +12,7 @@
           <div class="small-box bg-aqua">
             <div class="inner">
               <h4>Create
-              <p>New Data</p></h4>
+              <p>New Item</p></h4>
             </div>
             <div class="icon">
               <i class="ion ion-person-add"></i>

@@ -4,7 +4,7 @@
 <head>
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <title>Edit</title>
+  <title>Create Items</title>
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <link rel="stylesheet" type="text/css" media="screen" href="main.css">
   <script src="main.js"></script>
@@ -12,25 +12,22 @@
 <body>
   
   @section('content')
-  
-    @foreach ($data as $row)
   <div class="col-md-12">
           <!-- Horizontal Form -->
           <div class="box box-info">
             <div class="box-header with-border">
-              <h3 class="box-title">Edit Form</h3>
+              <h3 class="box-title">Create Items</h3>
             </div>
             <!-- /.box-header -->
             <!-- form start -->
-            <form class="form-horizontal" action="{{route('admin.update',$row->id_item)}}" method="post">
+            <form class="form-horizontal" action="{{route('post.store')}}" method="post">
             {{ csrf_field() }}
-            {{method_field('PUT')}}
               <div class="box-body">
                 <!-- ID Item -->
                 <div class="form-group">
-                  
+                  <label for="inputIDItem" class="col-sm-2 control-label">ID Item</label>
                   <div class="col-sm-10">
-                    <input type="hidden" class="form-control" id="inputIDItem" placeholder="ID Item" name="inputIDItem" value="{{$row->id_item}}">
+                    <input type="number" class="form-control" id="inputIDItem" placeholder="ID Item" name="inputIDItem">
                   </div>
                 </div>
 
@@ -39,7 +36,7 @@
                   <label for="inputIDCategory" class="col-sm-2 control-label">ID Category</label>
 
                   <div class="col-sm-10">
-                    <input type="number" class="form-control" id="inputIDCategory" placeholder="ID Category" name="inputIDCategory" value="{{$row->id_category}}">
+                    <input type="number" class="form-control" id="inputIDCategory" placeholder="ID Category" name="inputIDCategory">
                   </div>
                 </div>
 
@@ -48,7 +45,7 @@
                   <label for="inputNamaItem" class="col-sm-2 control-label">Nama Item</label>
 
                   <div class="col-sm-10">
-                    <input type="text" class="form-control" id="inputNamaItem" placeholder="Nama Item" name="inputNamaItem" value="{{$row->nama_item}}">
+                    <input type="text" class="form-control" id="inputNamaItem" placeholder="Nama Item" name="inputNamaItem">
                   </div>
                 </div>
 
@@ -57,7 +54,7 @@
                   <label for="inputWarna" class="col-sm-2 control-label">Warna</label>
 
                   <div class="col-sm-10">
-                    <input type="text" class="form-control" id="inputWarna" placeholder="Warna" name="inputWarna" value="{{$row->warna}}">
+                    <input type="text" class="form-control" id="inputWarna" placeholder="Warna" name="inputWarna">
                   </div>
                 </div>
 
@@ -66,7 +63,7 @@
                   <label for="inputStok" class="col-sm-2 control-label">Stok</label>
 
                   <div class="col-sm-10">
-                    <input type="number" class="form-control" id="inputStok" placeholder="Stok" name="inputStok" value="{{$row->stok}}">
+                    <input type="number" class="form-control" id="inputStok" placeholder="Stok" name="inputStok">
                   </div>
                 </div>
 
@@ -75,7 +72,7 @@
                   <label for="inputHarga" class="col-sm-2 control-label">Harga</label>
 
                   <div class="col-sm-10">
-                    <input type="number" class="form-control" id="inputHarga" placeholder="Harga" name="inputHarga" value="{{$row->harga}}">
+                    <input type="number" class="form-control" id="inputHarga" placeholder="Harga" name="inputHarga">
                   </div>
                 </div>
 
@@ -84,7 +81,7 @@
                   <label for="inputSatuan" class="col-sm-2 control-label">Satuan</label>
 
                   <div class="col-sm-10">
-                    <input type="text" class="form-control" id="inputSatuan" placeholder="Satuan" name="inputSatuan" value="{{$row->satuan}}">
+                    <input type="text" class="form-control" id="inputSatuan" placeholder="Satuan" name="inputSatuan">
                   </div>
                 </div>
 
@@ -93,7 +90,7 @@
                   <label for="inputKeterangan" class="col-sm-2 control-label">Keterangan</label>
 
                   <div class="col-sm-10">
-                    <input type="text" class="form-control" id="inputKeterangan" placeholder="Keterangan" name="inputKeterangan" value="{{$row->keterangan}}">
+                    <input type="text" class="form-control" id="inputKeterangan" placeholder="Keterangan" name="inputKeterangan">
                   </div>
                 </div>
                 
@@ -101,13 +98,12 @@
               <!-- /.box-body -->
               <div class="box-footer">
                 <button type="submit" class="btn btn-default"><a href="master">Cancel</a></button>
-                <button type="submit" class="btn btn-info pull-right">Edit</button>
+                <button type="submit" class="btn btn-info pull-right">Create</button>
               </div>
               <!-- /.box-footer -->
             </form>
           </div>
         </div>
-        @endforeach
         @endsection
 </body>
 </html>

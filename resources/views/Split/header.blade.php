@@ -21,17 +21,23 @@
       <div class="navbar-custom-menu">
         <ul class="nav navbar-nav">
           <!-- Messages: style can be found in dropdown.less-->
-          <li class="dropdown messages-menu">
-            <a href="category" class="dropdown-toggle" data-toggle="dropdown">
-              <i>Category</i>
-            </a>
-          </li>
-          <!-- Notifications: style can be found in dropdown.less -->
           <li class="dropdown notifications-menu">
             <a href="master" class="dropdown-toggle" data-toggle="dropdown">
               <i>List</i>
             </a>
           </li>
+          <li class="dropdown messages-menu">
+            <a href="category" class="dropdown-toggle" data-toggle="dropdown">
+              <i>Category</i>
+            </a>
+          </li>
+          <li class="dropdown notifications-menu">
+            <a href="#" class="dropdown-toggle" data-toggle="dropdown">
+              <i>Shipper</i>
+            </a>
+          </li>
+          <!-- Notifications: style can be found in dropdown.less -->
+          
           <!-- Tasks: style can be found in dropdown.less -->
           
           <!-- User Account: style can be found in dropdown.less -->
