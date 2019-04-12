@@ -5,7 +5,7 @@
 
   <header class="main-header">
     <!-- Logo -->
-    <a href="index2.html" class="logo">
+    <a href="#" class="logo">
       <!-- mini logo for sidebar mini 50x50 pixels -->
       <span class="logo-mini"><b>A</b>LT</span>
       <!-- logo for regular state and mobile devices -->
@@ -20,32 +20,14 @@
 
       <div class="navbar-custom-menu">
         <ul class="nav navbar-nav">
-          <!-- Messages: style can be found in dropdown.less-->
-          <li class="dropdown notifications-menu">
-            <a href="master" class="dropdown-toggle" data-toggle="dropdown">
-              <i>List</i>
-            </a>
-          </li>
-          <li class="dropdown messages-menu">
-            <a href="category" class="dropdown-toggle" data-toggle="dropdown">
-              <i>Category</i>
-            </a>
-          </li>
-          <li class="dropdown notifications-menu">
-            <a href="#" class="dropdown-toggle" data-toggle="dropdown">
-              <i>Shipper</i>
-            </a>
-          </li>
-          <!-- Notifications: style can be found in dropdown.less -->
-          
-          <!-- Tasks: style can be found in dropdown.less -->
-          
-          <!-- User Account: style can be found in dropdown.less -->
           <li class="dropdown user user-menu">
             <a href="#" class="dropdown-toggle" data-toggle="dropdown">
               <img src="{{ asset('template/dist/img/user2-160x160.jpg') }}" class="user-image" alt="User Image">
               <span class="hidden-xs">Administrator</span>
             </a>
+          <li class="dropdown notifications-menu">
+            <a href="{{ url('/logout') }}" class="dropdown-toggle" data-toggle="dropdown"> Logout </a>
+          </li>          
         </ul>
       </div>
     </nav>

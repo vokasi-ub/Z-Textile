@@ -23,15 +23,6 @@
             <form class="form-horizontal" action="{{route('post.save')}}" method="post">
             {{ csrf_field() }}
               <div class="box-body">
-                <!-- ID Category -->
-                <div class="form-group">
-                  <label for="inputIDCategory" class="col-sm-2 control-label">ID Category</label>
-
-                  <div class="col-sm-10">
-                    <input type="number" class="form-control" id="inputIDCategory" placeholder="ID Category" name="inputIDCategory">
-                  </div>
-                </div>
-
                 <!-- Category Kain -->
                 <div class="form-group">
                   <label for="inputCategoryKain" class="col-sm-2 control-label">Category Kain</label>
